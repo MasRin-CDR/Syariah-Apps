@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aplikasi Kalkulator Waris Interaktif</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Web App Interaktif</p>
+        <h1>Kalkulator Waris</h1>
+        <p class="hero-text">
+        </p>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="panel panel-form">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Input Pewaris</p>
+            <h2>Data Perhitungan</h2>
+          </div>
+          <p class="section-copy">
+            Isi ahli waris yang masih hidup. Jika ada pasangan, aplikasi otomatis
+            memisahkan 50% harta terlebih dahulu sesuai arahan KHI/gono-gini.
+          </p>
+        </div>
+
+        <form id="waris-form" class="waris-form">
+
+          <section class="section-block">
+            <div class="section-headline">
+              <div>
+                <p class="section-kicker">Metode Perhitungan</p>
+                <h3>Pilih Metode</h3>
+              </div>
+              <p class="section-copy">
+                <strong>Faraid</strong> membagi seluruh harta langsung. <strong>KHI</strong> memisahkan
+                50% harta terlebih dahulu sebagai bagian gono-gini jika ada pasangan yang masih hidup.
+              </p>
+            </div>
+            <div class="mode-switch">
+              <input type="radio" id="method-faraid" name="method" value="faraid" />
+              <label for="method-faraid">
+                <span>Metode Faraid</span>
+              </label>
+              <input type="radio" id="method-khi" name="method" value="khi" checked />
+              <label for="method-khi">
+                <span>Metode KHI</span>
+              </label>
+            </div>
+          </section>
+
+          <section class="section-block">
+            <div class="section-headline">
+              <div>
+                <p class="section-kicker">Nilai Harta</p>
+                <h3>Harta Awal</h3>
+              </div>
+              <p class="section-copy">
+                Masukkan total harta waris bersih yang akan dihitung.
+              </p>
+            </div>
+
+            <div class="estate-grid">
+              <label class="field-card field-card-wide">
+                <span class="field-label">Total Harta</span>
+                <input type="number" id="totalEstate" name="totalEstate" min="0" step="1000" value="100000000" />
+                <small class="field-hint">Masukkan angka tanpa titik atau koma.</small>
+              </label>
+            </div>
+          </section>
+
+          <div id="heir-groups" class="heir-groups"></div>
+
+          <div class="form-actions">
+            <button type="submit" class="primary-button">Hitung Pembagian</button>
+            <button type="button" class="ghost-button" id="reset-button">Reset Form</button>
+          </div>
+
+          <p id="form-message" class="form-message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="panel panel-results">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Output</p>
+            <h2>Hasil Perhitungan</h2>
+          </div>
+          <p class="section-copy">
+            Setelah dihitung, tabel ini menampilkan bagian akhir tiap ahli waris,
+            nominal harta, dan penanda kasus khusus.
+          </p>
+        </div>
+
+        <div id="results-view" class="results-view" hidden>
+          <div class="summary-grid summary-grid-compact">
+            <article class="summary-card">
+              <span class="summary-label">Harta Masuk</span>
+              <strong id="summary-estate">-</strong>
+            </article>
+            <article class="summary-card">
+              <span class="summary-label">Harta Dibagi</span>
+              <strong id="summary-distributable">-</strong>
+            </article>
+            <article class="summary-card">
+              <span class="summary-label">Asal / Tashih</span>
+              <strong id="summary-origin">-</strong>
+            </article>
+          </div>
+
+          <div id="special-cases" class="special-cases"></div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Ahli Waris</th>
+                  <th>Jumlah</th>
+                  <th>Bagian</th>
+                  <th>Saham</th>
+                  <th>Harta Total</th>
+                  <th>Per Orang</th>
+                  <th>Keterangan</th>
+                </tr>
+              </thead>
+              <tbody id="results-body"></tbody>
+              <tfoot id="results-tfoot"></tfoot>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
