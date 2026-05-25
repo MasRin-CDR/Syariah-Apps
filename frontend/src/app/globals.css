@@ -1,0 +1,303 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #10b981;
+  --primary-dark: #047857;
+  --primary-light: #d1fae5;
+  --gold: #f59e0b;
+  --gold-dark: #b45309;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --bg: #0f1923;
+  --surface: #172331;
+  --border: #283747;
+  --text: #f8fafc;
+  --text-muted: #9ca3af;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.arabic {
+  direction: rtl;
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+  font-feature-settings:
+    'kern' 1,
+    'liga' 1,
+    'calt' 1;
+  letter-spacing: 0;
+}
+
+.arabic-quran {
+  direction: rtl;
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+  font-size: 2rem;
+  line-height: 3.5rem;
+  letter-spacing: 0;
+  text-align: right;
+}
+
+.arabic-hadis {
+  direction: rtl;
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+  font-size: 1.75rem;
+  line-height: 3.25rem;
+  letter-spacing: 0;
+  text-align: right;
+}
+
+.glass {
+  background: rgb(255 255 255 / 8%);
+  border: 1px solid rgb(255 255 255 / 15%);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+}
+
+.glass-dark {
+  background: rgb(15 25 35 / 78%);
+  border: 1px solid rgb(255 255 255 / 8%);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+.glass-light {
+  background: rgb(255 255 255 / 86%);
+  border: 1px solid rgb(16 185 129 / 16%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 24px rgb(15 23 42 / 12%);
+  transform: translateY(-2px);
+}
+
+.card-primary {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  border: none;
+  color: white;
+}
+
+.bg-islamic {
+  background-color: #0f1923;
+  background-image:
+    linear-gradient(120deg, rgb(16 185 129 / 12%) 0%, transparent 32%, rgb(245 158 11 / 10%) 72%, transparent 100%),
+    url("data:image/svg+xml,%3Csvg width='88' height='88' viewBox='0 0 88 88' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%2310B981' stroke-opacity='0.08' stroke-width='1'%3E%3Cpath d='M44 4l13 27 27 13-27 13-13 27-13-27L4 44l27-13z'/%3E%3Cpath d='M44 18l8 18 18 8-18 8-8 18-8-18-18-8 18-8z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(16 185 129 / 45%);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(16 185 129 / 70%);
+}
+
+.skeleton {
+  animation: shimmer 1.5s infinite;
+  background: linear-gradient(90deg, var(--border) 25%, rgb(255 255 255 / 10%) 50%, var(--border) 75%);
+  background-size: 200% 100%;
+  border-radius: var(--radius);
+}
+
+mark {
+  background: rgb(245 158 11 / 30%);
+  border-radius: 2px;
+  color: inherit;
+  font-weight: 600;
+  padding: 0 2px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.ayat-number {
+  align-items: center;
+  background: linear-gradient(135deg, #f59e0b, #b45309);
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgb(245 158 11 / 40%);
+  color: white;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  height: 2.25rem;
+  justify-content: center;
+  width: 2.25rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgb(16 185 129 / 30%);
+  color: white;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.625rem 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 16px rgb(16 185 129 / 40%);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+}
+
+.btn-ghost:hover {
+  background: var(--surface);
+  border-color: var(--primary);
+  color: var(--text);
+}
+
+.ayat-separator {
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  height: 1px;
+  margin: 1rem 0;
+}
+
+.bismillah {
+  color: var(--primary);
+  direction: rtl;
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+  font-size: 2.5rem;
+  line-height: 1.6;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+.tab-bar {
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  gap: 0;
+}
+
+.tab-item {
+  border-bottom: 2px solid transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: -2px;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.tab-item.active {
+  border-bottom-color: var(--primary);
+  color: var(--primary);
+}
+
+.tab-item:hover {
+  color: var(--primary);
+}
+
+.badge {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+}
+
+.badge-green {
+  background: #dff7ef;
+  color: #065f46;
+}
+
+.badge-gold {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge-muted {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.badge-primary {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
